@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Meta Attribution Bridge",
+	"Description": "Integration with Meta (Facebook) SDK for App Events and Attribution.",
+	"Category": "Analytics",
+	"CreatedBy": "Valii Studio",
+	"CreatedByURL": "https://valiistudio.com",
+	"DocsURL": "https://github.com/rohantipare/MetaAttributionBridge",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/rohantipare/MetaAttributionBridge/issues",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "MetaAttributionBridge",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Android"
+			]
+		}
+	]
+}

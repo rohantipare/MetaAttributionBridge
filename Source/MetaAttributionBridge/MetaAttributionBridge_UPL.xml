@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <init>
+        <log text="MetaAttributionBridge_UPL Init"/>
+        <setStringFromProperty result="FacebookAppId" ini="Engine" section="/Script/MetaAttributionBridge.MetaAttributionSettings" property="FacebookAppId" default="0"/>
+        <setStringFromProperty result="FacebookClientToken" ini="Engine" section="/Script/MetaAttributionBridge.MetaAttributionSettings" property="FacebookClientToken" default=""/>
+        <log text="FacebookAppId: $S(FacebookAppId)"/>
+    </init>
+
+    <buildGradleAdditions>
+        <insert>
+            // We inject repositories directly into the module scope
+            repositories {
+                google()
+                mavenCentral()
+                maven { url "https://plugins.gradle.org/m2/" }
+            }
+
+            dependencies {
+                implementation 'com.facebook.android:facebook-core:18.2.3'
+                implementation 'com.android.installreferrer:installreferrer:2.2'
+            }
+
+            android { 
+                defaultConfig { 
+        </insert>
+        <insertValue value="                    resValue 'string', 'facebook_app_id', '&quot;$S(FacebookAppId)&quot;'&#10;                    resValue 'string', 'facebook_client_token', '&quot;$S(FacebookClientToken)&quot;'&#10;" />
+        <insert>
+                } 
+            }
+        </insert>
+    </buildGradleAdditions>
+
+    <androidManifestUpdates>
+        <addPermission android:name="com.google.android.gms.permission.AD_ID"/>
+        <addElements tag="application">
+            <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+            <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        </addElements>
+    </androidManifestUpdates>
+
+    <proguardAdditions>
+        <insert>
+            -keep class com.facebook.appevents.** { *; }
+            -keep class com.facebook.core.** { *; }
+            -keep class com.facebook.internal.** { *; }
+            -keep public class com.facebook.appevents.AppEventsLogger {
+                public *;
+            }
+            -dontwarn com.facebook.**
+        </insert>
+    </proguardAdditions>
+</root>
