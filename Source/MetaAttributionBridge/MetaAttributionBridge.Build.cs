@@ -1,3 +1,5 @@
+// Copyright Valii Studio 2026. All Rights Reserved.
+
 using UnrealBuildTool;
 using System.IO;
 
@@ -49,7 +51,7 @@ public class MetaAttributionBridge : ModuleRules
                 "ApplicationCore"
             });
 
-            string uplPath = Path.Combine(ModuleDirectory, "MetaAttributionBridge_UPL.xml");
+            string uplPath = Path.Combine(ModuleDirectory, "..", "ThirdParty", "MetaSDK", "MetaAttributionBridge_UPL.xml");
             AdditionalPropertiesForReceipt.Add("AndroidPlugin", uplPath);
         }
     }

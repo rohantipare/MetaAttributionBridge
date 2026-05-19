@@ -1,3 +1,5 @@
+// Copyright Valii Studio 2026. All Rights Reserved.
+
 #include "MetaAttributionBridge.h"
 
 DEFINE_LOG_CATEGORY(LogMetaAttribution);
