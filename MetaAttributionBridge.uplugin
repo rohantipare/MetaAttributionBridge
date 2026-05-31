@@ -10,7 +10,7 @@
 	"DocsURL": "https://github.com/rohantipare/MetaAttributionBridge",
 	"MarketplaceURL": "",
 	"SupportURL": "https://github.com/rohantipare/MetaAttributionBridge/issues",
-	"EngineVersion": "5.7.0",
+	"EngineVersion": "5.5.0",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
